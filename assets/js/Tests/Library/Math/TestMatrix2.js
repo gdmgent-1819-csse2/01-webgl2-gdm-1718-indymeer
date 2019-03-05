@@ -26,12 +26,12 @@ export default class TestMatrix2 extends TestMatrix {
             3, 4,
         ]
         const b = [
+            5, 6,
             7, 8,
-            9, 6,
         ]
         const expected = [
-            8, 10,
-            12, 10,
+            6, 8,
+            10, 12,
         ]
         const m = new Matrix2(a)
         m.add(b)
@@ -45,16 +45,16 @@ export default class TestMatrix2 extends TestMatrix {
     testSub() {
         console.info('test Matrix2.sub()')
         const a = [
-            5, 6,
-            7, 8,
+            1, 2,
+            3, 4,
         ]
         const b = [
-            9, 6,
-            3, 2,
+            9, 8,
+            7, 6,
         ]
         const expected = [
-            -4, 0,
-            4, 6,
+            -8, -6,
+            -4, -2,
         ]
         const m = new Matrix2(a)
         m.sub(b)
@@ -72,12 +72,12 @@ export default class TestMatrix2 extends TestMatrix {
             3, 4,
         ]
         const b = [
-            2, 4,
-            6, 8,
+            2, -1,
+            -1, 2,
         ]
         const expected = [
-            14, 20,
-            30, 44,
+            0, 3,
+            2, 5,
         ]
         const m = new Matrix2(a)
         m.mul(b)
@@ -91,16 +91,16 @@ export default class TestMatrix2 extends TestMatrix {
     testMulIdentity() {
         console.info('test Matrix2.mul() by identity matrix')
         const a = [
-            1, 3,
-            5, 7,
+            1, 2,
+            3, 4,
         ]
         const i = [
             1, 0,
             0, 1,
         ]
         const expected = [
-            1, 3,
-            5, 7,
+            1, 2,
+            3, 4,
         ]
         const m = new Matrix2(a)
         m.mul(i)
@@ -112,21 +112,19 @@ export default class TestMatrix2 extends TestMatrix {
      * Test the rotation method.
      */
     testRot() {
-        console.info("Test: Matrix2.rot()")
+        console.info('test Matrix2.rot()')
         const α = 90
         const a = [
-          2, 4,
-          6, 8,
+            3, 0,
+            1, 0,
         ]
-    
         const expected = [
-          4, -2,
-          8, -6,
+            -1, 0,
+            3, 0,
         ]
-    
         const m = new Matrix2(a)
         m.rot(α)
-        const actual = m.items
+        const actual = m.elements
         this.assertIdenticalRounded(actual, expected)
-      }
+    }
 }
