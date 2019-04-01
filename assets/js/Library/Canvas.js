@@ -45,25 +45,25 @@ export default class Canvas {
         this.clearData()
 
         // White point in the middle
-        const w = new Vector2(0, 0)
-        this.data.positions.push(w.x, w.y)
+        const middlePoint = new Vector2(0, 0)
+        this.data.positions.push(middlePoint.x, middlePoint.y)
         this.data.colors.push(...this.colors.white)
 
 
         // create new vector points
         // vector for seconds
-        const v = new Vector2(0, 0.6)
-        this.data.positions.push(v.x, v.y)
+        const secondsVector = new Vector2(0, 0.6)
+        this.data.positions.push(secondsVector.x, secondsVector.y)
         this.data.colors.push(...this.colors.black)
 
         // vector for minutes
-        const m = new Vector2(0, 0.5)
-        this.data.positions.push(m.x, m.y)
+        const minutesVector = new Vector2(0, 0.5)
+        this.data.positions.push(minutesVector.x, minutesVector.y)
         this.data.colors.push(...this.colors.black)
 
         // vector for hours
-        const h = new Vector2(0, 0.3)
-        this.data.positions.push(h.x, h.y)
+        const hoursVector = new Vector2(0, 0.3)
+        this.data.positions.push(hoursVector.x, hoursVector.y)
         this.data.colors.push(...this.colors.black)
 
         // create new date
@@ -73,7 +73,7 @@ export default class Canvas {
         const Hours = d.getHours()
 
                     
-      
+      //colors from constructor
         const colors = [
             'white',
         ]
@@ -83,17 +83,17 @@ export default class Canvas {
         // -6 to rotate in the opposit direction 
 
         colors.forEach(color => {
-            v.rot((Seconds * -6))
-            this.data.positions.push(v.x, v.y)
+            secondsVector.rot((Seconds * -6))
+            this.data.positions.push(secondsVector.x, secondsVector.y)
             this.data.colors.push(...this.colors[color])
           
 
-            m.rot((Minutes * -6))
-            this.data.positions.push(m.x, m.y)
+            minutesVector.rot((Minutes * -6))
+            this.data.positions.push(minutesVector.x, minutesVector.y)
             this.data.colors.push(...this.colors[color])
             
-            h.rot((Hours * -6))
-            this.data.positions.push(h.x, h.y)
+            hoursVector.rot((Hours * -6))
+            this.data.positions.push(hoursVector.x, hoursVector.y)
             this.data.colors.push(...this.colors[color])
         });
  
